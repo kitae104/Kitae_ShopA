@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import kr.inhatc.spring.item.entity.Item;
 import kr.inhatc.spring.member.entity.Member;
 import kr.inhatc.spring.order.constant.OrderStatus;
+import kr.inhatc.spring.utils.entity.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +26,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class OrderItem {
+public class OrderItem extends BaseEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +45,4 @@ public class OrderItem {
     
     private int count;
     
-    private LocalDateTime regTime;
-    
-    private LocalDateTime updateTime;
 }

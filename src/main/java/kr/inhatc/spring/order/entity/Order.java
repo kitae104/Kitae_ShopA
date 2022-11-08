@@ -22,6 +22,7 @@ import kr.inhatc.spring.cart.entity.Cart;
 import kr.inhatc.spring.item.entity.Item;
 import kr.inhatc.spring.member.entity.Member;
 import kr.inhatc.spring.order.constant.OrderStatus;
+import kr.inhatc.spring.utils.entity.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,7 +34,7 @@ import lombok.ToString;
 @ToString
 @Table(name = "orders")
 @NoArgsConstructor
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +54,4 @@ public class Order {
             orphanRemoval = true, fetch = FetchType.LAZY)
     private List<OrderItem> orderItems = new ArrayList<>();
     
-    private LocalDateTime regTime;
-    
-    private LocalDateTime updateTime;
 }
