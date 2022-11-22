@@ -9,7 +9,7 @@ public class ItemImgDto {
     private Long id;   
     
     private String imgName;
-    
+   
     private String oriName;
     
     private String imgUrl;
