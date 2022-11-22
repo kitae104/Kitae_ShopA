@@ -14,6 +14,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import kr.inhatc.spring.item.constant.ItemSellStatus;
+import kr.inhatc.spring.item.dto.ItemFormDto;
 import kr.inhatc.spring.utils.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -55,5 +56,13 @@ public class Item extends BaseEntity {
 	@Lob
 	@Column(nullable = false)
 	private String itemDetail;	// 상품 상세 설명 
-		
+	
+	public void updateItem(ItemFormDto itemFormDto) {	    
+	    this.itemName = itemFormDto.getItemName();
+	    this.price = itemFormDto.getPrice();
+	    this.stockNumber = itemFormDto.getStockNumber();
+	    this.itemDetail = itemFormDto.getItemDetail();
+	    this.itemSellStatus = itemFormDto.getItemSellStatus();
+	}
+	
 }
