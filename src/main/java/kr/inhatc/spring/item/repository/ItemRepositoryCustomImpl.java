@@ -21,7 +21,8 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import kr.inhatc.spring.item.constant.ItemSellStatus;
 import kr.inhatc.spring.item.dto.ItemSearchDto;
 import kr.inhatc.spring.item.entity.Item;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
 
     private JPAQueryFactory queryFactory;
@@ -34,6 +35,7 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
     @Override
     public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
         
+       log.info("검색 : " + itemSearchDto );
         
        List<Item> list = queryFactory
             .selectFrom(item)
@@ -54,7 +56,7 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
                .fetchOne()
                ;
         
-        return new PageImpl<>(list, pageable, list.size()) ;
+        return new PageImpl<>(list, pageable, total) ;
     }
 
 
@@ -83,7 +85,7 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
 
     private BooleanExpression searchByLike(String searchBy, String searchQuery){
 
-        if(StringUtils.equals("itemNm", searchBy)){
+        if(StringUtils.equals("itemName", searchBy)){
             return item.itemName.like("%" + searchQuery + "%");
         } else if(StringUtils.equals("createdBy", searchBy)){
             return item.createdBy.like("%" + searchQuery + "%");

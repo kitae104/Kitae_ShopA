@@ -5,6 +5,6 @@ package kr.inhatc.spring.item.constant;
  * @author 김기태
  *
  */
-public enum ItemSellStatus {
+public enum ItemSellStatus { 
 	SELL, SOLD_OUT
 }

@@ -30,7 +30,7 @@ public class SecurityConfig {
             .logoutSuccessUrl("/");
         
         http.authorizeRequests()
-            .mvcMatchers("/css/**", "/js/**", "/images/**").permitAll()
+            .mvcMatchers("/css/**", "/js/**", "/images/**", "/test/**").permitAll()
             .mvcMatchers("/", "/member/**", "/item/**").permitAll()
             .mvcMatchers("/admin/**").hasRole("ADMIN")
             .anyRequest().authenticated();
