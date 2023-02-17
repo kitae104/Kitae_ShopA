@@ -1,34 +1,29 @@
 package kr.inhatc.spring.item.repository;
 
-import static kr.inhatc.spring.item.entity.QItem.item;
-
-import java.time.LocalDateTime;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.core.types.dsl.Wildcard;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import jakarta.persistence.EntityManager;
+import kr.inhatc.spring.item.constant.ItemSellStatus;
+import kr.inhatc.spring.item.dto.ItemSearchDto;
+import kr.inhatc.spring.item.entity.Item;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.thymeleaf.util.StringUtils;
 
-import com.querydsl.core.QueryResults;
-import com.querydsl.core.types.Predicate;
-import com.querydsl.core.types.dsl.BooleanExpression;
-import com.querydsl.core.types.dsl.Wildcard;
-import com.querydsl.jpa.impl.JPAQueryFactory;
+import java.time.LocalDateTime;
+import java.util.List;
 
-import kr.inhatc.spring.item.constant.ItemSellStatus;
-import kr.inhatc.spring.item.dto.ItemSearchDto;
-import kr.inhatc.spring.item.entity.Item;
-import lombok.extern.slf4j.Slf4j;
+import static kr.inhatc.spring.item.entity.QItem.item;
 @Slf4j
 public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
 
     private JPAQueryFactory queryFactory;
     
     public ItemRepositoryCustomImpl(EntityManager em) {
-        queryFactory = new JPAQueryFactory(em);
+        //queryFactory = new JPAQueryFactory(em);
     }
        
     

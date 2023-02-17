@@ -2,7 +2,7 @@ package kr.inhatc.spring.item.service;
 
 import java.io.IOException;
 
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

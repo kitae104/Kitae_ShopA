@@ -3,16 +3,18 @@ package kr.inhatc.spring.item.entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import kr.inhatc.spring.item.constant.ItemSellStatus;
 import kr.inhatc.spring.item.dto.ItemFormDto;
 import kr.inhatc.spring.utils.entity.BaseEntity;

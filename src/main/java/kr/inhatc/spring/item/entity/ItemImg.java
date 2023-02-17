@@ -1,14 +1,6 @@
 package kr.inhatc.spring.item.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import jakarta.persistence.*;
 import kr.inhatc.spring.order.entity.Order;
 import kr.inhatc.spring.utils.entity.BaseEntity;
 import lombok.Getter;

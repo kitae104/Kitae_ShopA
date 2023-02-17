@@ -1,5 +1,6 @@
 package kr.inhatc.spring.config;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,9 +31,10 @@ public class SecurityConfig {
             .logoutSuccessUrl("/");
         
         http.authorizeRequests()
-            .mvcMatchers("/css/**", "/js/**", "/images/**", "/test/**").permitAll()
-            .mvcMatchers("/", "/member/**", "/item/**").permitAll()
-            .mvcMatchers("/admin/**").hasRole("ADMIN")
+            .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+            .requestMatchers("/css/**", "/js/**", "/images/**", "/test/**").permitAll()
+            .requestMatchers("/", "/member/**", "/item/**").permitAll()
+            .requestMatchers("/admin/**").hasRole("ADMIN")
             .anyRequest().authenticated();
         
         
